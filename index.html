@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>GMaps Project</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="static/css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+	<aside class="aside">
+		<!--<h3 data-bind="text: header"></h3>-->
+		<p>Filter: <input data-bind="textInput: filter, valueUpdate: 'afterkeydown', event: { keyup: q_filter }" /></p>
+		<h3 class="search_header"></h3>
+		<ul data-bind="foreach: markerList">
+		    <li data-bind="click: $parent.alert">
+		        <span data-bind="text: $data.name"></span>
+		        <!--<br><span data-bind="text: $data.address"></span>-->
+		    </li>
+		</ul>
+	</aside>
+	<div class="map">
+		<div id="map"></div>
+	</div>
+</div>
+</body>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript" src="http://knockoutjs.com/downloads/knockout-3.4.1.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2CBuybUWozBRgg9m8noUEjj63J52ymhc&libraries=places"></script>
+<script src="static/js/script.js"></script>
+</html>

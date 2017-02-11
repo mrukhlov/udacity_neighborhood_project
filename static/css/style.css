@@ -1,0 +1,24 @@
+* {
+    font-family: 'Roboto Slab', serif;
+}
+
+.container {
+    display: flex;
+}
+
+.aside {
+    width: 250px;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+#map {
+    height: calc(100% - 10px);
+    width: calc(100% - 260px);
+    position: absolute;
+}
+
+ul {
+    cursor: default;
+    list-style-type: none;
+}

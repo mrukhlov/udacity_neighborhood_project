@@ -9,6 +9,8 @@ When search results list item or map marker is clicked, it provides info window 
 
 In addition to GMaps API i used here.com API. They provide various information of the place you're interested in. If retrieve fails, or here.com has no info, Google Maps API place information is used.
 
+Filter input reacts on keyboard press and filters search results list and markers on the map.
+
 #### How to run
 
 Application can be run by opening index.html. Besides script.js no other files or libs needed because knockout and jquery libs are already included in index file.

@@ -11,24 +11,41 @@
 </head>
 <body>
 <div class="container">
-	<aside class="aside">
+	<!--<div class="aside_button" style="display: none">asd</div>-->
+	<button class="aside_button" style="display: none" data-bind="click: showAside">Show menu</button>
+	<aside data-bind="visible: visibleExample" class="aside">
 		<!--<h3 data-bind="text: header"></h3>-->
-		<p>Filter: <input data-bind="textInput: filter, valueUpdate: 'afterkeydown', event: { keyup: q_filter }" /></p>
+		<p>Filter: <input data-bind="textInput: filter, valueUpdate: 'afterkeydown', event: { keyup: qFilter }" /></p>
 		<h3 class="search_header"></h3>
 		<ul data-bind="foreach: markerList">
-		    <li data-bind="click: $parent.alert">
+		    <li data-bind="click: $parent.choosePoi">
 		        <span data-bind="text: $data.name"></span>
 		        <!--<br><span data-bind="text: $data.address"></span>-->
 		    </li>
 		</ul>
 	</aside>
-	<div class="map">
-		<div id="map"></div>
+	<div class="main">
+		<div id="map_frame"></div>
 	</div>
 </div>
 </body>
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script type="text/javascript" src="http://knockoutjs.com/downloads/knockout-3.4.1.js"></script>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2CBuybUWozBRgg9m8noUEjj63J52ymhc&libraries=places"></script>
+<script>
+	var map=null;
+	function initMap() {
+		pos = {lat: 40.7548601, lng: -73.9853687};
+		map = new google.maps.Map(document.getElementById('map_frame'), {
+			zoom: 13,
+			center: pos
+		});
+		infoWindow = new google.maps.InfoWindow();
+	}
+
+	function loadError() {
+		alert('Error on loading map. Please refresh page.')
+	}
+</script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="http://knockoutjs.com/downloads/knockout-3.4.1.js"></script>
 <script src="static/js/script.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2CBuybUWozBRgg9m8noUEjj63J52ymhc&libraries=places&callback=initMap" onerror="loadError()"></script>
 </html>

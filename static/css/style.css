@@ -9,10 +9,11 @@
 .aside {
     width: 250px;
     height: 100%;
-    overflow-x: hidden;
+    /*height: 100vh;*/
+    /*overflow: auto;*/
 }
 
-#map {
+#map_frame {
     height: calc(100% - 10px);
     width: calc(100% - 260px);
     position: absolute;
@@ -21,4 +22,28 @@
 ul {
     cursor: default;
     list-style-type: none;
+}
+
+@media only screen and (max-width: 500px) {
+    /*.aside {*/
+        /*display: none;*/
+    /*}*/
+
+    #map_frame {
+        height: 100%;
+        width: 100%;
+        /*position: absolute;*/
+    }
+    
+    .aside_button {
+        width: 80px;
+        height: 50px;
+        background-color: white;
+        position: absolute;
+        z-index:1;
+        margin-left: 10px;
+        margin-top: 50px;
+        display:block!important;
+        border-radius: 10%;
+    }
 }
